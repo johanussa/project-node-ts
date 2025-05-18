@@ -199,13 +199,13 @@ const handleSubmit = (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+    const { salary } = Object.fromEntries(formData.entries());
 
-    if (!data.salary || data.salary <= 0) {
+    if (!salary || salary <= 0) {
         event.target.reset();
         return alert('El salario debe ser un número positivo');
     }
 
-    loadSalaryData(data.salary);
+    loadSalaryData(salary);
     event.target.reset();
 }
